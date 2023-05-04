@@ -1,3 +1,18 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+
+
+homepage:
+  path: /
+  controller: App\Controller\DefaultController::index
+
+security:
+  resource: "routes/security_routing.yml"
+
+crm:
+  resource: "routes/crm_routing.yml"
+  prefix:   /crm
+
+main:
+  resource: "routes/routing.yml"

@@ -1,0 +1,3 @@
+main:
+    path: /
+    defaults: { _controller: App\Controller\Crm\DefaultController::index }
