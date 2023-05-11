@@ -63,7 +63,7 @@ class CreateAdminCommand extends Command
             $em->persist($admin);
             $em->flush();
 
-            $output->writeln('User created');
+            $output->writeln('Admin created');
         }
         return 1;
     }
