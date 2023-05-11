@@ -2,20 +2,19 @@
 
 namespace App\Entity\Crm;
 
-use App\Repository\Crm\AdminRepository;
+use App\Repository\Crm\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
- * @ORM\Entity(repositoryClass=AdminRepository::class)
+ * @ORM\Entity(repositoryClass=UserRepository::class)
  */
-class Admin implements UserInterface
+class User implements UserInterface
 {
-
-    const ROLE_ADMIN = 'ROLE_ADMIN';
-    const ROLE_MODERATOR = 'ROLE_MODERATOR';
     const ROLE_REDACTOR = 'ROLE_REDACTOR';
+    const ROLE_USER = 'ROLE_USER';
+
 
     /**
      * @ORM\Id
@@ -91,7 +90,6 @@ class Admin implements UserInterface
         return $this;
     }
 
-
     public function getPassword(): ?string
     {
         return $this->password;
@@ -116,24 +114,24 @@ class Admin implements UserInterface
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeImmutable
+    public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->createdAt;
     }
 
-    public function setCreatedAt(?\DateTimeImmutable $createdAt): self
+    public function setCreatedAt(?\DateTimeInterface $createdAt): self
     {
         $this->createdAt = $createdAt;
 
         return $this;
     }
 
-    public function getUpdatedAt(): ?\DateTimeImmutable
+    public function getUpdatedAt(): ?\DateTimeInterface
     {
         return $this->updatedAt;
     }
 
-    public function setUpdatedAt(?\DateTimeImmutable $updatedAt): self
+    public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
 
