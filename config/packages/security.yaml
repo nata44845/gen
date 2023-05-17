@@ -10,6 +10,10 @@ security:
     # https://symfony.com/doc/current/security.html#loading-the-user-the-user-provider
     providers:
         users_in_memory: { memory: null }
+        crm_provider:
+            entity:
+                class: App\Entity\Crm\Admin
+                property: email
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
@@ -17,6 +21,25 @@ security:
         main:
             lazy: true
             provider: users_in_memory
+        crm:
+            switch_user: true
+            provider: crm_provider
+            pattern: ^/
+            logout:
+                path:   /logout
+            form_login:
+                login_path: login
+                check_path: login
+                username_parameter: login[email]
+                password_parameter: login[password]
+                remember_me: true
+                default_target_path: login_success
+                always_use_default_target_path: true
+            remember_me:
+                secret:   '%kernel.secret%'
+                lifetime: 31536000 # 1 year in seconds
+                path:     /
+                remember_me_parameter: login[remember]
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall
@@ -29,6 +52,7 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/crm, roles: ['ROLE_ADMIN'] }
 
 when@test:
     security:
