@@ -28,10 +28,10 @@ security:
             logout:
                 path:   /logout
             form_login:
-                login_path: login
-                check_path: login
-                username_parameter: login[email]
-                password_parameter: login[password]
+                login_path: crm_login
+                check_path: crm_login
+                username_parameter: email
+                password_parameter: password
                 remember_me: true
                 default_target_path: login_success
                 always_use_default_target_path: true
@@ -52,7 +52,7 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
-        - { path: ^/crm, roles: ['ROLE_ADMIN'] }
+        - { path: ^/crm/, roles: ['ROLE_ADMIN'] }
 
 when@test:
     security:

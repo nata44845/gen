@@ -15,12 +15,9 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 class SecurityController extends AbstractController
 {
 
-    private $mailer;
-
-    public function __construct(UserPasswordEncoderInterface $passwordEncoder, MailerInterface $mailer)
+    public function __construct(UserPasswordEncoderInterface $passwordEncoder)
      {
          $this->passwordEncoder = $passwordEncoder;
-         $this->mailer = $mailer;
      }
 
     public function login(Request $request, AuthenticationUtils $authUtils)
@@ -42,7 +39,7 @@ class SecurityController extends AbstractController
         $error = $authUtils->getLastAuthenticationError();
 
         return $this->render('Security/login.html.twig', [
-            'lastEmail' => $lastEmail,
+            'last_username' => $lastEmail,
             'error' => $error,
             'flagRegister' => $register,
             'form' => $form->createView()
