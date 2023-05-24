@@ -1,5 +1,16 @@
 {% extends 'crm.html.twig' %}
 
+{% block titleH1 %}Администраторы{% endblock %}
+{% block breadcrumbs %}
+    <li class="breadcrumb-item">
+        <a href="/crm">Главная</a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">
+        Администраторы
+    </li>
+{% endblock %}
+
+
 {% block content %}
 <!-- ========== table components start ========== -->
       <section class="table-components">
@@ -11,186 +22,50 @@
             <div class="row">
               <div class="col-lg-12">
                 <div class="card-style mb-30">
-                  <h6 class="mb-10">Data Table</h6>
-                  <p class="text-sm mb-20">
-                    For basic styling—light padding and only horizontal
-                    dividers—use the class table.
-                  </p>
                   <div class="table-wrapper table-responsive">
                     <table class="table">
                       <thead>
                         <tr>
                           <th><h6>#</h6></th>
-                          <th><h6>Name</h6></th>
                           <th><h6>Email</h6></th>
-                          <th><h6>Project</h6></th>
-                          <th><h6>Status</h6></th>
-                          <th><h6>Action</h6></th>
+                          <th><h6>Роли</h6></th>
+                          <th><h6>Статус</h6></th>
+                          <th><h6>Действия</h6></th>
                         </tr>
                         <!-- end table row-->
                       </thead>
                       <tbody>
-                        <tr>
-                          <td>
-                            <div class="employee-image">
-                              <img src="assets/images/lead/lead-1.png" alt="" />
-                            </div>
-                          </td>
-                          <td class="min-width">
-                            <p>Esther Howard</p>
-                          </td>
-                          <td class="min-width">
-                            <p><a href="#0">yourmail@gmail.com</a></p>
-                          </td>
-                          <td class="min-width">
-                            <p>Admin Dashboard Design</p>
-                          </td>
-                          <td class="min-width">
-                            <span class="status-btn active-btn">Active</span>
-                          </td>
-                          <td>
-                            <div class="action">
-                              <button class="text-danger">
-                                <i class="lni lni-trash-can"></i>
-                              </button>
-                            </div>
-                          </td>
-                        </tr>
-                        <!-- end table row -->
-                        <tr>
-                          <td>
-                            <div class="employee-image">
-                              <img src="assets/images/lead/lead-2.png" alt="" />
-                            </div>
-                          </td>
-                          <td class="min-width">
-                            <p>D. Jonathon</p>
-                          </td>
-                          <td class="min-width">
-                            <p><a href="#0">yourmail@gmail.com</a></p>
-                          </td>
-                          <td class="min-width">
-                            <p>React Dashboard</p>
-                          </td>
-                          <td class="min-width">
-                            <span class="status-btn active-btn">Active</span>
-                          </td>
-                          <td>
-                            <div class="action">
-                              <button class="text-danger">
-                                <i class="lni lni-trash-can"></i>
-                              </button>
-                            </div>
-                          </td>
-                        </tr>
-                        <!-- end table row -->
-                        <tr>
-                          <td>
-                            <div class="employee-image">
-                              <img src="assets/images/lead/lead-3.png" alt="" />
-                            </div>
-                          </td>
-                          <td>
-                            <p>John Doe</p>
-                          </td>
-                          <td>
-                            <p><a href="#0">yourmail@gmail.com</a></p>
-                          </td>
-                          <td>
-                            <p>Bootstrap Template</p>
-                          </td>
-                          <td>
-                            <span class="status-btn success-btn">Done</span>
-                          </td>
-                          <td>
-                            <div class="action">
-                              <button class="text-danger">
-                                <i class="lni lni-trash-can"></i>
-                              </button>
-                            </div>
-                          </td>
-                        </tr>
-                        <!-- end table row -->
-                        <tr>
-                          <td>
-                            <div class="employee-image">
-                              <img src="assets/images/lead/lead-4.png" alt="" />
-                            </div>
-                          </td>
-                          <td>
-                            <p>Rayhan Jamil</p>
-                          </td>
-                          <td>
-                            <p><a href="#0">yourmail@gmail.com</a></p>
-                          </td>
-                          <td>
-                            <p>Css Grid Template</p>
-                          </td>
-                          <td>
-                            <span class="status-btn info-btn">Pending</span>
-                          </td>
-                          <td>
-                            <div class="action">
-                              <button class="text-danger">
-                                <i class="lni lni-trash-can"></i>
-                              </button>
-                            </div>
-                          </td>
-                        </tr>
-                        <!-- end table row -->
-                        <tr>
-                          <td>
-                            <div class="employee-image">
-                              <img src="assets/images/lead/lead-5.png" alt="" />
-                            </div>
-                          </td>
-                          <td>
-                            <p>Esther Howard</p>
-                          </td>
-                          <td>
-                            <p><a href="#0">yourmail@gmail.com</a></p>
-                          </td>
-                          <td>
-                            <p>Admin Dashboard Design</p>
-                          </td>
-                          <td>
-                            <span class="status-btn close-btn">Close</span>
-                          </td>
-                          <td>
-                            <div class="action">
-                              <button class="text-danger">
-                                <i class="lni lni-trash-can"></i>
-                              </button>
-                            </div>
-                          </td>
-                        </tr>
-                        <!-- end table row -->
-                        <tr>
-                          <td>
-                            <div class="employee-image">
-                              <img src="assets/images/lead/lead-6.png" alt="" />
-                            </div>
-                          </td>
-                          <td>
-                            <p>Anee Doe</p>
-                          </td>
-                          <td>
-                            <p><a href="#0">yourmail@gmail.com</a></p>
-                          </td>
-                          <td>
-                            <p>Space Template Update</p>
-                          </td>
-                          <td>
-                            <span class="status-btn active-btn">Active</span>
-                          </td>
-                          <td>
-                            <div class="action">
-                              <button class="text-danger">
-                                <i class="lni lni-trash-can"></i>
-                              </button>
-                            </div>
-                          </td>
-                        </tr>
+                        {% for admin in admins %}
+                            <tr>
+                            <td>
+                                <div class="employee-image">
+                                <img src="#" alt="" />
+                                </div>
+                            </td>
+                            <td class="min-width">
+                                <p><a href="#">{{ admin.email }}</a></p>
+                            </td>
+                            <td class="min-width">
+                                {% for role in admin.roles%}
+                                    <p>{{ role }}</p>
+                                {% endfor %}
+                            </td>
+                            <td class="min-width">
+                                {% if admin.enabled %}
+                                    <span class="status-btn active-btn">Разрешен</span>
+                                {% else %}
+                                    <span class="status-btn close-btn">Запрещен</span>
+                                {% endif %}    
+                            </td>
+                            <td>
+                                <div class="action">
+                                <button class="text-danger">
+                                    <i class="lni lni-trash-can"></i>
+                                </button>
+                                </div>
+                            </td>
+                            </tr>
+                        {% endfor %}
                         <!-- end table row -->
                       </tbody>
                     </table>
