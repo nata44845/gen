@@ -5,3 +5,7 @@ main:
 administrators:
     path: /administrators
     defaults: { _controller: App\Controller\Crm\AdminController::index }
+
+administrator_edit:
+    path: /administrator/edit/{id}
+    defaults: { _controller: App\Controller\Crm\AdminController::edit, id: null }

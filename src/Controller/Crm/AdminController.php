@@ -5,6 +5,8 @@ namespace App\Controller\Crm;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Doctrine\Persistence\ManagerRegistry;
 use App\Entity\Crm\Admin;
+use Symfony\Component\HttpFoundation\Request;
+use App\Form\Type\Crm\AdminType;
 
 class AdminController extends AbstractController
 {
@@ -21,4 +23,30 @@ class AdminController extends AbstractController
   ]);
   }
   
+  public function edit(Request $request, $id = null)
+  {
+    if (!$id) {
+      /** @var Admin $admin */
+      $admin = new Admin();
+    } else {
+      /** @var Admin $admin */
+      $admin = $this->doctrine->getRepository(Admin::class)->find($id);
+    }
+
+    $form = $this->createForm(AdminType::class, $admin);
+    $form->handleRequest($request);
+
+    if ($form->isSubmitted() && $form->isValid()) {
+      $em = $this->doctrine->getManager();
+      $em->persist($admin);
+      $em->flush();
+
+      return $this->redirectToRoute('administrators');
+    }
+    return $this->render('crm/admin/edit.html.twig',[
+      'form' => $form->createView()
+    ]);
+  }
+
+
 }

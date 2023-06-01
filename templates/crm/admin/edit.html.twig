@@ -1,0 +1,58 @@
+{% extends 'crm.html.twig' %}
+
+{% block titleH1 %}{% if form.vars.value.id %}Редактирование{% else %}Добавление{% endif %} Администратора{% endblock %}
+{% block breadcrumbs %}
+    <li class="breadcrumb-item">
+        <a href="{{ path('main') }}">Главная</a>
+    </li>
+    <li class="breadcrumb-item">
+        <a href="{{ path('administrators') }}">Администраторы</a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">
+        Администратор
+    </li>
+{% endblock %}
+
+{% block content %}
+<section class="tab-components">
+    <div class="container-fluid">
+        <!-- ========== form-elements-wrapper start ========== -->
+        {{ form_start(form, {'method': 'POST'}) }}
+        <div class="form-elements-wrapper">
+            <div class="row">
+                <div class="col-lg-6">
+                <!-- input style start -->
+                    <div class="card-style mb-30">
+                        <div class="input-style-1">
+                            {{ form_row(form.email) }}
+                        </div>
+                        <div class="form-check checkbox-style mb-20">
+                            {{ form_widget(form.enabled) }}
+                            <label class="form-check-label">{{ form_label(form.enabled) }}</label>
+                        </div>
+                        <!-- end input -->
+                        <div class="input-style-3">
+                            {{ form_row(form.roles) }}
+                        </div>
+                        <!-- end input -->
+                    </div>
+                </div>
+                <!-- ========== form-elements-wrapper end ========== -->
+                <div class="row">
+                    <div class="col-lg-6">
+                        <a class="main-btn dark-btn-outline rounded-full btn-hover" href="{{ path('administrators') }}">
+                            Отмена
+                        </a>
+                    </div>
+                    <div class="col-lg-6">
+                        <button type="submit" class="main-btn dark-btn-outline rounded-full btn-hover">
+                            OK
+                        </button>
+                    </div>
+                </div>
+            </div>    
+        {{ form_end(form) }}
+    </div>
+    <!-- end container -->
+</section>
+{% endblock %}
