@@ -61,7 +61,7 @@
               <ul id="ddmenu_{{ i }}" class="collapse dropdown-nav">
                 {% for subKey,item in value.items %}
                 <li>
-                  <a href="{{ item.href }}">{{ subKey }}</a>
+                  <a href={% if item.href!="#"%}"{{ path(item.href) }}"{% else %}"#"{%endif%}">{{ subKey }}</a>
                 </li>
                 {% endfor %}
               </ul>
